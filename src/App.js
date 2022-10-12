@@ -22,12 +22,14 @@ class App extends Component {
         },
         {
           "catogory" : "Womens",
-          "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.standard.co.uk%2Fshopping%2Fesbest%2Ffashion%2Fbest-womens-clothing-a4208901.html&psig=AOvVaw25gO5EpP39E85H6sDzABib&ust=1665598988199000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLiv_fHl2PoCFQAAAAAdAAAAABAE",
+          "image": "https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/02/20/12/lfwstreetstyle2002j.jpg?width=1200&auto=webp&quality=75",
+          "size" : "large",
           "id":4
         },
         {
           "catogory" : "Mens",
           "image": "https://ofmediaanddesign.files.wordpress.com/2019/04/0_jyhi-9qin2nhxlaw.jpg?w=720",
+          "size" : "large",
           "id":5
         }
       ]
