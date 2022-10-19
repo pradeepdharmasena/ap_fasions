@@ -2,7 +2,7 @@ import React from "react";
 import './JacketPage.scss'
 
 export function JacketPage (props) {
-
+    
     return(
         <div>
             <h1> this is Jacket page</h1>

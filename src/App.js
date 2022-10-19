@@ -5,9 +5,12 @@ import { JacketPage } from "./Pages/JacketsPage/JacketPage";
 import { SneakersPage } from "./Pages/SneakersPage/SneakersPage";
 import { WomensPage } from "./Pages/WomensPage/WomensPage";
 import { MensPage } from "./Pages/MensPage/MensPage";
+import { ShopPage } from "./Pages/ShopPage/ShopPage";
+import { Route, Routes} from "react-router-dom";
 
-import { Route, Routes,  withRouter } from "react-router-dom";
 class App extends Component {
+
+  
 
   constructor() {
     super();
@@ -48,7 +51,7 @@ class App extends Component {
         ]
     }
 }
-  
+
   render() {
     return (
       <div >
@@ -59,6 +62,7 @@ class App extends Component {
           <Route exact path = "/sneakers" element = {<SneakersPage/>}/>
           <Route exact path = "/mens" element = {<MensPage/>}/>
           <Route exact path = "/womens" element = {<WomensPage/>}/>
+          <Route exact path = "/shop" element = {<ShopPage/>}/>
         </Routes>
       </div>
     );
