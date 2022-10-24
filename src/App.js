@@ -6,7 +6,10 @@ import { SneakersPage } from "./Pages/SneakersPage/SneakersPage";
 import { WomensPage } from "./Pages/WomensPage/WomensPage";
 import { MensPage } from "./Pages/MensPage/MensPage";
 import { ShopPage } from "./Pages/ShopPage/ShopPage";
+import { NavigationBar } from "./Components/NavigationBar/NavigationBar";
 import { Route, Routes} from "react-router-dom";
+import { SignInRegister } from "./Pages/SignInRegisterPage/SignInRegister";
+
 
 class App extends Component {
 
@@ -55,6 +58,7 @@ class App extends Component {
   render() {
     return (
       <div >
+        <NavigationBar/>
         <Routes>
           <Route exact path = "/" element = {<HomePage directory = {this.state.directory}/>}/>
           <Route exact path = "/hats" element = {<HatPage/>}/>
@@ -63,6 +67,9 @@ class App extends Component {
           <Route exact path = "/mens" element = {<MensPage/>}/>
           <Route exact path = "/womens" element = {<WomensPage/>}/>
           <Route exact path = "/shop" element = {<ShopPage/>}/>
+          <Route exact path = "/shop" element = {<ShopPage/>}/>
+          <Route exact path = "/signin" element = {<SignInRegister/>}/>
+          <Route exact path = "/register" element = {<SignInRegister/>}/>
         </Routes>
       </div>
     );
