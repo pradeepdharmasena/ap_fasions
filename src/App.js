@@ -9,7 +9,7 @@ import { ShopPage } from "./Pages/ShopPage/ShopPage";
 import { NavigationBar } from "./Components/NavigationBar/NavigationBar";
 import { Route, Routes} from "react-router-dom";
 import { SignInRegister } from "./Pages/SignInRegisterPage/SignInRegister";
-import { auth } from "./firebase/firebase.utils";
+import { auth , createUserProfileDoc } from "./firebase/firebase.utils";
 
 
 class App extends Component {
@@ -63,8 +63,13 @@ class App extends Component {
 unsuscribeFromAuth = null;
 
 componentDidMount(){
-  this.unsuscribeFromAuth = auth.onAuthStateChanged(user =>{
-    this.setState({currentUser:user}, ()=>{console.log("user object==> ", this.state.currentUser)})
+  this.unsuscribeFromAuth = auth.onAuthStateChanged( async user => {
+
+    await createUserProfileDoc(user);
+    this.setState({currentUser:user})
+
+    console.log("current user inside comp ===>" , user)
+    
   })
 }
 
