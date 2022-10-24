@@ -9,6 +9,7 @@ import { ShopPage } from "./Pages/ShopPage/ShopPage";
 import { NavigationBar } from "./Components/NavigationBar/NavigationBar";
 import { Route, Routes} from "react-router-dom";
 import { SignInRegister } from "./Pages/SignInRegisterPage/SignInRegister";
+import { auth } from "./firebase/firebase.utils";
 
 
 class App extends Component {
@@ -51,14 +52,30 @@ class App extends Component {
                 "id": 5,
                 "linkUrl":"/mens"
             }
-        ]
+        ],
+
+        currentUser:{
+
+        }
     }
+}
+
+unsuscribeFromAuth = null;
+
+componentDidMount(){
+  this.unsuscribeFromAuth = auth.onAuthStateChanged(user =>{
+    this.setState({currentUser:user}, ()=>{console.log("user object==> ", this.state.currentUser)})
+  })
+}
+
+componentWillUnmount(){
+  this.unsuscribeFromAuth();
 }
 
   render() {
     return (
       <div >
-        <NavigationBar/>
+        <NavigationBar currentUser = {this.state.currentUser}/>
         <Routes>
           <Route exact path = "/" element = {<HomePage directory = {this.state.directory}/>}/>
           <Route exact path = "/hats" element = {<HatPage/>}/>
