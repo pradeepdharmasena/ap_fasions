@@ -29,3 +29,34 @@ provider.setCustomParameters({prompt: 'select_account'});
 
 export const SignInWithGoogle = () => auth.signInWithPopup(provider)
 
+export const createUserProfileDoc = async (authUser, otherProps) =>{
+  console.log(" current user inside profile doc", authUser)
+  if(!authUser) return;
+  const userRef = firestore.doc(`users/${authUser.uid}`)
+  const snapShot = await userRef.get();
+  console.log("snapshot==> ", snapShot)
+
+  if(!snapShot.exists){
+    const {displayName, email} = authUser;
+    const createAt = new Date();
+    console.log("email   ==> ", email)
+    console.log("displayName   ==> ", displayName)
+    console.log("createAt   ==> ", createAt)
+
+    try{
+      await userRef.set({
+        displayName,
+        email,
+        createAt,
+        ...otherProps
+
+      }
+
+      )
+    }catch(error){
+      console.log("error creating user ===> ", error.massage)
+    }
+  }
+
+}
+
